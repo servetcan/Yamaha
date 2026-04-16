@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme | Yamaha Motor</title>
+    <style>
+        :root { --yamaha-blue: #003580; }
+        body { background: #000; color: white; font-family: 'Inter', sans-serif; padding: 50px; }
+        .checkout-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .order-summary { background: #111; padding: 40px; border-left: 5px solid var(--yamaha-blue); }
+        .form-group { margin-bottom: 20px; }
+        input { width: 100%; padding: 15px; background: #222; border: 1px solid #333; color: white; margin-top: 10px; }
+        .btn-confirm { width: 100%; padding: 20px; background: var(--yamaha-blue); border: none; color: white; font-weight: bold; cursor: pointer; font-size: 18px; }
+        .btn-confirm:hover { background: white; color: black; }
+        .logo { font-size: 24px; font-weight: 900; letter-spacing: 5px; text-decoration: none; color: white; display: block; margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">YAMAHA</a>
+    
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <h2>Müşteri Bilgileri</h2>
+            <div class="form-group">
+                <label>Ad Soyad</label>
+                <input type="text" placeholder="Adınız Soyadınız">
+            </div>
+            <div class="form-group">
+                <label>E-posta</label>
+                <input type="email" placeholder="email@örnek.com">
+            </div>
+            <div class="form-group">
+                <label>Telefon</label>
+                <input type="text" placeholder="05xx xxx xx xx">
+            </div>
+            <h2>Ödeme Bilgileri</h2>
+            <input type="text" placeholder="Kart Numarası">
+            <div style="display:flex; gap:10px;">
+                <input type="text" placeholder="AA/YY">
+                <input type="text" placeholder="CVC">
+            </div>
+            <button class="btn-confirm" onclick="alert('Siparişiniz Alındı! R-World dünyasına hoş geldiniz.')">ÖDEMEYİ TAMAMLA</button>
+        </div>
+
+        <div class="order-summary" id="summary">
+            <h2>Sipariş Özeti</h2>
+            <div id="motor-details" style="margin-top:30px;">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const motor = JSON.parse(localStorage.getItem('selectedMotor'));
+        if(motor) {
+            document.getElementById('motor-details').innerHTML = `
+                <h1 style="font-size: 40px; color: var(--yamaha-blue);">${motor.name}</h1>
+                <p style="margin: 20px 0; font-size: 18px; color: #888;">${motor.cat} Serisi</p>
+                <div style="border-top: 1px solid #333; padding-top: 20px;">
+                    <p>Motor: ${motor.engine}</p>
+                    <p>Güç: ${motor.power}</p>
+                </div>
+                <h2 style="margin-top: 40px; font-size: 32px;">Toplam: ${motor.price}</h2>
+            `;
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

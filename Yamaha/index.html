@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamaha Motor Türkiye | Resmi Web Sitesi</title>
+    <link rel="icon" type="image/png" href="faviconn.png">
+    <style>
+        :root {
+            --yamaha-blue: #003580;
+            --glass: rgba(0, 0, 0, 0.96);
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background: #000; color: white; overflow-x: hidden; }
+
+        /* ARKA PLAN VİDEO */
+        .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.25); }
+
+        /* HEADER */
+        header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: var(--transition); }
+        header.scrolled { padding: 15px 60px; background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: 5px; cursor: pointer; text-decoration: none; color: white; }
+        
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { color: white; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav ul li a:hover { color: var(--yamaha-blue); }
+
+        .btn-buy-nav { background: var(--yamaha-blue); color: white; padding: 12px 35px; border: none; font-size: 13px; font-weight: 800; cursor: pointer; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); }
+
+        /* SECTIONS */
+        section { min-height: 100vh; padding: 120px 60px; display: flex; flex-direction: column; align-items: center; position: relative; }
+        
+        .section-title { font-size: 3.5rem; font-weight: 200; letter-spacing: 15px; margin-bottom: 30px; text-transform: uppercase; text-align: center; }
+
+        /* MODELLER BÖLÜMÜ */
+        #models { background: var(--glass); }
+        .category-tabs { display: flex; gap: 15px; margin-bottom: 30px; justify-content: center; flex-wrap: wrap; }
+        .tab-btn { background: transparent; color: white; border: 1px solid #333; padding: 12px 25px; cursor: pointer; text-transform: uppercase; font-weight: bold; transition: 0.3s; }
+        .tab-btn.active { background: var(--yamaha-blue); border-color: var(--yamaha-blue); }
+
+        /* ARAMA ÇUBUĞU STİLİ */
+        #modelSearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            background: #111;
+            border: 1px solid var(--yamaha-blue);
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        #motor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; width: 100%; max-width: 1400px; }
+        .motor-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 35px; transition: var(--transition); }
+        .motor-card:hover { border-color: var(--yamaha-blue); transform: translateY(-10px); }
+
+        /* HAKKIMIZDA & SERVİS BÖLÜMLERİ */
+        #about, #support { background: #050505; border-top: 1px solid #111; }
+        .info-container { max-width: 900px; text-align: center; line-height: 1.8; color: #aaa; font-size: 1.1rem; }
+        .info-container b { color: white; }
+
+        /* İLETİŞİM BÖLÜMÜ */
+        #contact { background: #000; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; max-width: 1100px; }
+        .contact-box { background: #0a0a0a; padding: 40px; border: 1px solid #222; }
+        input, textarea { width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: white; margin-top: 15px; }
+
+        .btn-card-buy { width: 100%; padding: 18px; background: white; color: black; border: none; font-weight: 900; font-size: 15px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        .btn-card-buy:hover { background: var(--yamaha-blue); color: white; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="yamaha-video.mp4" type="video/mp4">
+    </video>
+
+    <header id="navbar">
+        <a href="#home" class="logo">YAMAHA</a>
+        <nav>
+            <ul>
+                <li><a href="#models">Modeller</a></li>
+                <li><a href="#support">Servis & Destek</a></li>
+                <li><a href="my-bike.html" style="color: #ffb400;">MOTORUM</a></li>
+                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="#contact">İletişim</a></li>
+                <li><button class="btn-buy-nav" onclick="window.location.href='#models'">SATIN AL</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" style="justify-content: center; height: 100vh; padding: 0;">
+        <div class="hero-content" style="text-align:center">
+            <h1 style="font-size: 8vw; letter-spacing: 25px; font-weight: 100;">R-WORLD</h1>
+            <p style="letter-spacing: 10px; margin-bottom: 40px; color: var(--yamaha-blue);">REVS YOUR HEART</p>
+            <button class="btn-card-buy" style="max-width:300px" onclick="window.location.href='#models'">YOLCULUĞA BAŞLA</button>
+        </div>
+    </section>
+
+    <section id="models">
+        <h2 class="section-title">Showroom</h2>
+        
+        <input type="text" id="modelSearch" placeholder="Model ara (Örn: R1, MT-07...)" onkeyup="searchModels()">
+
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterModels('All')">Tümü</button>
+            <button class="tab-btn" onclick="filterModels('Supersport')">Supersport</button>
+            <button class="tab-btn" onclick="filterModels('Hyper Naked')">Hyper Naked</button>
+            <button class="tab-btn" onclick="filterModels('Adventure')">Adventure</button>
+            <button class="tab-btn" onclick="filterModels('Sport Heritage')">Heritage</button>
+            <button class="tab-btn" onclick="filterModels('Sport Touring')">Touring</button>
+        </div>
+        <div id="motor-grid"></div>
+    </section>
+
+    <section id="support">
+        <h2 class="section-title">Servis & Destek</h2>
+        <div class="info-container">
+            <p>Yamaha'nızın performansını ve güvenliğini korumak bizim önceliğimizdir. <b>Yamaha Yetkili Servisleri</b>, uzman teknisyenler ve en son teşhis ekipmanlarıyla donatılmıştır.</p>
+            
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; width: 100%;">
+                <div class="contact-box">
+                    <h4 style="color: var(--yamaha-blue); margin-bottom: 15px;">PERİYODİK BAKIM</h4>
+                    <p style="font-size:14px">Orijinal Yamaha parçaları ve profesyonel işçilik ile motorunuzun ömrünü uzatın.</p>
+                </div>
+                <div class="contact-box">
+                    <h4 style="color: var(--yamaha-blue); margin-bottom: 15px;">YOL YARDIM</h4>
+                    <p style="font-size:14px">Türkiye'nin her yerinde 7/24 kesintisiz destek ile yolculuğunuz asla yarım kalmasın.</p>
+                </div>
+                <div class="contact-box">
+                    <h4 style="color: var(--yamaha-blue); margin-bottom: 15px;">GARANTİ</h4>
+                    <p style="font-size:14px">Sınıfının en iyi garanti şartlarıyla Yamaha kalitesine tam güven duymanızı sağlıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="info-container">
+            <p style="margin-bottom: 30px;">1955'ten beri Yamaha Motor, dünyanın dört bir yanındaki insanlara <b>"Kando"</b> hissini yaşatmak için çalışıyor. Kando; bir şeye ilk kez rastladığımızda hissettiğimiz derin tatmin ve yoğun heyecanı ifade eden Japonca bir terimdir.</p>
+            <p>Biz sadece motosiklet üretmiyoruz; her bir modelimizle bir yaşam tarzı, özgürlük ve teknolojik mükemmellik sunuyoruz. Yarış pistlerinden elde ettiğimiz deneyimi, her gün sürdüğünüz motorlarınıza aktarıyoruz.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">İletişim</h2>
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h3 style="margin-bottom: 20px; color: var(--yamaha-blue);">BİZE MESAJ GÖNDERİN</h3>
+                <form onsubmit="event.preventDefault(); alert('Mesajınız başarıyla iletildi!');">
+                    <input type="text" placeholder="Adınız Soyadınız" required>
+                    <input type="email" placeholder="E-posta Adresiniz" required>
+                    <textarea rows="5" placeholder="Mesajınız veya Sorularınız..." required></textarea>
+                    <button type="submit" class="btn-card-buy">MESAJI GÖNDER</button>
+                </form>
+            </div>
+            <div class="contact-box" style="display: flex; flex-direction: column; justify-content: center; gap: 30px;">
+                <div>
+                    <h3 style="color: var(--yamaha-blue); margin-bottom: 10px;">GENEL MÜDÜRLÜK</h3>
+                    <p>Yamaha Motor Türkiye Pazarlama A.Ş.<br>İstanbul, Türkiye</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--yamaha-blue); margin-bottom: 10px;">MÜŞTERİ HİZMETLERİ</h3>
+                    <p><b>Telefon:</b> 0212 XXX XX XX</p>
+                    <p><b>E-posta:</b> iletisim@yamaha-motor.com.tr</p>
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <span style="opacity: 0.5;">Instagram</span>
+                    <span style="opacity: 0.5;">YouTube</span>
+                    <span style="opacity: 0.5;">LinkedIn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    const motorData = [
+        { id: 1, name: "YZF-R1M", cat: "Supersport", engine: "998cc", power: "200 PS", price: "₺1.350.000" },
+        { id: 2, name: "YZF-R1", cat: "Supersport", engine: "998cc", power: "200 PS", price: "₺1.150.000" },
+        { id: 3, name: "YZF-R9", cat: "Supersport", engine: "890cc", power: "119 PS", price: "₺685.000" },
+        { id: 4, name: "YZF-R7", cat: "Supersport", engine: "689cc", power: "73.4 PS", price: "₺475.000" },
+        { id: 5, name: "YZF-R3", cat: "Supersport", engine: "321cc", power: "42 PS", price: "₺325.000" },
+        { id: 6, name: "YZF-R25", cat: "Supersport", engine: "249cc", power: "35 PS", price: "₺295.000" },
+        { id: 7, name: "YZF-R125", cat: "Supersport", engine: "125cc", power: "15 PS", price: "₺210.000" },
+        { id: 8, name: "MT-10 SP", cat: "Hyper Naked", engine: "998cc", power: "165 PS", price: "₺920.000" },
+        { id: 9, name: "MT-10", cat: "Hyper Naked", engine: "998cc", power: "165 PS", price: "₺810.000" },
+        { id: 10, name: "MT-09 SP", cat: "Hyper Naked", engine: "890cc", power: "119 PS", price: "₺595.000" },
+        { id: 11, name: "MT-09", cat: "Hyper Naked", engine: "890cc", power: "119 PS", price: "₺510.000" },
+        { id: 12, name: "MT-07", cat: "Hyper Naked", engine: "689cc", power: "73.4 PS", price: "₺395.000" },
+        { id: 13, name: "MT-03", cat: "Hyper Naked", engine: "321cc", power: "42 PS", price: "₺310.000" },
+        { id: 14, name: "MT-25", cat: "Hyper Naked", engine: "249cc", power: "35 PS", price: "₺285.000" },
+        { id: 15, name: "MT-125", cat: "Hyper Naked", engine: "125cc", power: "15 PS", price: "₺195.000" },
+        { id: 16, name: "Ténéré 700 World Raid", cat: "Adventure", engine: "689cc", power: "73 PS", price: "₺620.000" },
+        { id: 17, name: "Ténéré 700 Extreme", cat: "Adventure", engine: "689cc", power: "73 PS", price: "₺580.000" },
+        { id: 18, name: "Ténéré 700", cat: "Adventure", engine: "689cc", power: "73 PS", price: "₺540.000" },
+        { id: 19, name: "Tracer 9 GT+", cat: "Sport Touring", engine: "890cc", power: "119 PS", price: "₺745.000" },
+        { id: 20, name: "Tracer 7 GT", cat: "Sport Touring", engine: "689cc", power: "73.4 PS", price: "₺480.000" },
+        { id: 21, name: "Tracer 7", cat: "Sport Touring", engine: "689cc", power: "73.4 PS", price: "₺430.000" },
+        { id: 22, name: "XSR900 GP", cat: "Sport Heritage", engine: "890cc", power: "119 PS", price: "₺695.000" },
+        { id: 23, name: "XSR900", cat: "Sport Heritage", engine: "890cc", power: "119 PS", price: "₺560.000" },
+        { id: 24, name: "XSR700", cat: "Sport Heritage", engine: "689cc", power: "73.4 PS", price: "₺420.000" },
+        { id: 25, name: "XSR125", cat: "Sport Heritage", engine: "125cc", power: "15 PS", price: "₺205.000" }
+    ];
+
+    function searchModels() {
+        let input = document.getElementById('modelSearch').value.toLowerCase();
+        let filtered = motorData.filter(m => m.name.toLowerCase().includes(input));
+        updateGrid(filtered);
+    }
+
+    function filterModels(cat) {
+        const btns = document.querySelectorAll('.tab-btn');
+        btns.forEach(b => b.classList.toggle('active', b.innerText.includes(cat) || (cat==='All' && b.innerText==='Tümü')));
+
+        const filtered = cat === 'All' ? motorData : motorData.filter(m => m.cat === cat);
+        updateGrid(filtered);
+    }
+
+    // Grid güncelleme işlemini tek bir fonksiyona topladık
+    function updateGrid(data) {
+        const grid = document.getElementById('motor-grid');
+        grid.innerHTML = data.map(m => `
+            <div class="motor-card">
+                <p style="color:var(--yamaha-blue); font-weight:bold; font-size:12px;">${m.cat}</p>
+                <h3 style="font-size:28px; margin-bottom:15px;">${m.name}</h3>
+                <p style="color:#aaa; font-size:14px; margin-bottom:10px;">${m.engine} | ${m.power}</p>
+                <p style="color:white; font-weight:bold; margin-bottom:15px;">${m.price}</p>
+                <button class="btn-card-buy" onclick="buyNow(${m.id})">SATIN AL</button>
+            </div>
+        `).join('');
+    }
+
+    function buyNow(id) {
+        const selectedMotor = motorData.find(m => m.id === id);
+        localStorage.setItem('selectedMotor', JSON.stringify(selectedMotor));
+        window.location.href = 'checkout.html';
+    }
+
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Sayfa açıldığında tüm modelleri göster
+    filterModels('All');
+    </script>
+</body>
+</html>
